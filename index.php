@@ -16,7 +16,7 @@
 <?php
 // Paramètre ?id référençant le nom de fichier sans l'extension du répertoire data/
 if (isset($_GET["id"])) {
-    echo "<h1>".$_GET["id"]."</h1>";
+    echo "<p id='enigma'>".$_GET["id"]."</p>";
     echo "<form action='?id=".$_GET['id']."' method='post'>";
     $enigma = json_decode(file_get_contents("./data/".$_GET["id"].".json"), true);
     $npass = count($enigma["passwords"]);
