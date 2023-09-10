@@ -5,6 +5,7 @@ Enigma est un site web PHP minimaliste permettant de créer des énigmes via for
 ```shell
 cd /var/www/html
 git clone https://github.com/orthose/enigma.git
+cd enigma
 mkdir data
 ```
 
@@ -13,6 +14,17 @@ On ne doit pas pouvoir accéder aux fichiers du répertoire `data/` autrement qu
 ```
 Order deny,allow
 Deny from all
+```
+
+* **NGINX**: Modifier le fichier de configuration.
+```shell
+sudo nano /etc/nginx/sites-available/html
+```
+```
+location ^~ /enigma/data { deny all; }
+```
+```shell
+sudo systemctl restart nginx.service
 ```
 
 # Utilisation
