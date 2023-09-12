@@ -23,6 +23,10 @@ body {
   font-size: x-large;
 }
 
+p {
+    overflow-wrap: break-word;
+}
+
 p#enigma {
     text-align: center;
     margin: 10px 5px;
