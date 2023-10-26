@@ -46,6 +46,7 @@ if (!(isset($_SESSION["connect"]) && $_SESSION["connect"])) {
 
 // L'administrateur est connecté 
 else {
+    echo "<div style='text-align:right'><a class='logout' href='?logout'>Déconnexion</a></div>";
     // Suppression d'une énigme
     if (isset($_GET["del"]) && file_exists("./data/".$_GET["del"].".json")) { 
         unlink("./data/".$_GET["del"].".json"); 
