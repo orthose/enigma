@@ -1,7 +1,6 @@
 <?php
 
 function head() {
-    error_reporting(E_ALL|E_STRICT);
     echo <<<XML
     <meta charset="utf-8">
     <title>Enigma</title>

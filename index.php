@@ -1,21 +1,12 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <title>Enigma</title>
-  <!-- Responsive Web Site for smartphone -->
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <!-- Icônes -->
-  <link rel="icon" type="image/png" href="favicon.png" sizes="512x512">
-  <link rel="apple-touch-icon" type="image/png" href="favicon.png" sizes="512x512">
-  <!-- Feuilles de style -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
-  <link href='style.css' rel='stylesheet'>
+  <?php require_once("./templates.php"); head(); ?>
 </head>
 <body>
 <?php
 // Paramètre ?id référençant le nom de fichier sans l'extension du répertoire data/
-if (isset($_GET["id"])) {
+if (isset($_GET["id"]) && file_exists("./data/".$_GET["id"].".json")) {
     echo "<p id='enigma'>".$_GET["id"]."</p>";
     echo "<form action='?id=".$_GET['id']."' method='post'>";
     $enigma = json_decode(file_get_contents("./data/".$_GET["id"].".json"), true);
@@ -39,7 +30,7 @@ if (isset($_GET["id"])) {
     
     // Si tous les champs ont été trouvés alors la récompense est affichée
     if ($npass === 0) {
-        echo "<p>".$enigma["reward"]."</p>";
+        echo "<p class='reward'>".$enigma["reward"]."</p>";
     }
 }
 ?>
