@@ -88,7 +88,7 @@ else {
         echo "<form id='select-enigma' action='' method='get'>";
         $files = scandir("./data");
         foreach ($files as $fid) {
-            if (!str_starts_with($fid, '.')) {
+            if ($fid[0] !== '.') {
                 $fid = pathinfo($fid, PATHINFO_FILENAME);
                 echo "<field><input type='radio' id='$fid' name='del' value='$fid' /><label for='$fid'>$fid</label></field>";
             }
